@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="practicaed3uml">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="public" xPosition="588.0" yPosition="-1.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="alias" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Alumno" package="" visibility="public" xPosition="239.0" yPosition="91.0">
+      <Fields>
+        <Field name="notamedia" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="emitirCertificado" returnType="void" visibility="public"/>
+        <Method name="calcularNotaMedia" returnType="double" visibility="public"/>
+        <Method name="matricular" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Profesor" package="" visibility="public" xPosition="926.0" yPosition="110.0">
+      <Fields>
+        <Field name="NRP" type="String" visibility="private"/>
+        <Field name="docencia" type="Modulo[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ciclo" package="" visibility="public" xPosition="808.0" yPosition="493.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="horas" type="int" visibility="private"/>
+        <Field name="year" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="modulo" package="" visibility="public" xPosition="588.0" yPosition="261.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="contenido" type="String" visibility="private"/>
+        <Field name="horas" type="Int" visibility="private"/>
+        <Field name="alumnado" type="Alumno[]" visibility="private"/>
+        <Field name="claustro" type="Profesor[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="matricular" returnType="void" visibility="public"/>
+        <Method name="duracion" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Tarea" package="" visibility="public" xPosition="588.0" yPosition="578.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Examen" package="" visibility="public" xPosition="243.0" yPosition="505.0">
+      <Fields>
+        <Field name="descripcionPreguntas" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Preguntas" package="" visibility="public" xPosition="252.0" yPosition="661.0">
+      <Fields>
+        <Field name="enunciado" type="String" visibility="private"/>
+        <Field name="respuestas" type="String" visibility="private"/>
+        <Field name="respuestaCorrecta" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ComnpetenciasProfesionales" package="" visibility="public" xPosition="803.0" yPosition="671.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Alumno" target="Persona"/>
+    <HasRelation name="f" source="modulo" target="Tarea" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="mn" source="modulo" target="Alumno" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="v" source="modulo" target="Ciclo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="g" source="Preguntas" target="Examen" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="d" source="Profesor" target="modulo" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="dsa" source="modulo" target="Profesor" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ñl" source="modulo" target="Examen" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="´-ñ" source="Alumno" target="modulo" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Profesor" target="Persona"/>
+    <HasRelation name="G" source="ComnpetenciasProfesionales" target="Ciclo" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
